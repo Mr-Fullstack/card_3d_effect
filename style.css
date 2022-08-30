@@ -1,0 +1,312 @@
+@font-face {
+  font-family: "Avengeance Heroic Avenger";
+  src: url("./fonts/AVENGEANCE_HEROIC_AVENGER_AT.ttf") format("truetype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Avengeance Heroic Avenger";
+  src: url("./fonts/AVENGEANCE_HEROIC_AVENGER.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+
+@font-face {
+  font-family: "Avengeance Heroic Avenger";
+  src:  url("./fonts/AVENGEANCE_HEROIC_AVENGER_BD.ttf") format("truetype");
+  font-style: bold;
+  font-weight: 500;
+} 
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body{
+  background-color: #212121;
+  font-family: "Avengeance Heroic Avenger";
+}
+
+.drop{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    height: 500px;
+    background-color: #333;
+}
+.card_move{
+  display: inline-block;
+  margin: 20px;
+  width: 250px;
+  height: 350px;
+  border-radius: 10px;
+  position: relative;
+  cursor: grab; 
+  z-index: 1; 
+}
+
+.card_move_wrapper{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    height: 100%;
+    z-index: 1;
+}
+.card_move_block_shape{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card_move_body h1{
+   -webkit-text-stroke: 2px #FF3939;
+   text-align: center;
+   position: relative;
+   margin: 0px -10px;
+   top: 20px
+}
+
+.card_move_body h1::before{
+  content: "";
+  display: block;
+  width: 100%;
+  height: 20px;
+  background-color:  #FF3939;
+  text-align: center;
+  position: absolute;
+  top:calc(70% - 20px);
+  left: 0px;
+  z-index: -1;
+}
+
+.card_move_body{
+    position: absolute;
+    z-index: -1; 
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    padding: 10px;
+    --perspective: 500px;
+    --rotationX: 0;
+    --rotationY: 0;
+    --rotationZ: 0;
+    --angle: 15deg;
+    border-radius: 8px;
+    transform: perspective(var(--perspective)) rotateX(var(--rotationX))
+      rotateY(var(--rotationY)) rotateZ(var(--rotationZ));
+    transition: transform 500ms ease;
+    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.175));
+    background-color: blueviolet;
+    border: 2px solid #333;
+    color: aliceblue;
+}
+
+ .card_move_body img{
+  /* opacity: 0; */
+  image-rendering: pixelated;
+  /* animation:animation-thor .5s forwards linear; */
+}
+
+.card_move_block_shape:nth-child(1):hover ~ .card_move_body {
+    --rotationX: var(--angle);
+    --rotationY: calc(var(--angle) * -1);
+  }
+  
+  .card_move_block_shape:nth-child(2):hover ~ .card_move_body {
+    --rotationX: var(--angle);
+  }
+  
+  .card_move_block_shape:nth-child(3):hover ~ .card_move_body {
+    --rotationX: var(--angle);
+    --rotationY: var(--angle);
+  }
+  
+  .card_move_block_shape:nth-child(4):hover ~ .card_move_body {
+    --rotationY: calc(var(--angle) * -1);
+  }
+  
+  .card_move_block_shape:nth-child(6):hover ~ .card_move_body {
+    --rotationY: var(--angle);
+  }
+  
+  .card_move_block_shape:nth-child(7):hover ~ .card_move_body {
+    --rotationY: calc(var(--angle) * -1);
+    --rotationX: calc(var(--angle) * -1);
+  }
+  
+  .card_move_block_shape:nth-child(8):hover ~ .card_move_body {
+    --rotationX: calc(var(--angle) * -1);
+  }
+  
+  .card_move_block_shape:nth-child(9):hover ~ .card_move_body {
+    --rotationY: var(--angle);
+    --rotationX: calc(var(--angle) * -1);
+  }
+  
+  /*card_move img*/
+    
+   .card_move_body img {
+    --perspective: 250px;
+    --rotationX: 0;
+    --rotationY: 0;
+    --rotationZ: 0;
+    --angle: 15deg;
+    perspective-origin: center;
+    transform: perspective(var(--perspective)) rotateX(var(--rotationX))
+      rotateY(var(--rotationY)) rotateZ(var(--rotationZ));
+      transition: transform 500ms ease;
+      filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.175));
+      transform-style: preserve-3d flat;
+  }
+  .card_move_block_shape:nth-child(1):hover ~ .card_move_body img{
+    --rotationX: calc(var(--angle) * -1);
+    --rotationY: calc(var(--angle) * 1);
+  }
+  
+  .card_move_block_shape:nth-child(2):hover ~ .card_move_body img {
+    --rotationX: calc(var(--angle) * -1);
+  }
+  
+  .card_move_block_shape:nth-child(3):hover ~ .card_move_body img {
+    --rotationX: calc(var(--angle) * -1);
+    --rotationY: calc(var(--angle) * -1);
+  }
+  
+  .card_move_block_shape:nth-child(4):hover ~ .card_move_body img {
+    --rotationY: calc(var(--angle) * 1);
+  }
+  
+  .card_move_block_shape:nth-child(6):hover ~ .card_move_body img {
+    --rotationY:calc(var(--angle) * -1);
+  }
+  
+  .card_move_block_shape:nth-child(7):hover ~ .card_move_body img {
+    --rotationY: calc(var(--angle) * 1);
+    --rotationX: calc(var(--angle) * 1);
+  }
+  
+  .card_move_block_shape:nth-child(8):hover ~ .card_move_body img {
+    --rotationX: calc(var(--angle) * 1);
+  }
+  
+  .card_move_block_shape:nth-child(9):hover ~ .card_move_body  img{
+    --rotationY: calc(var(--angle) * -1);
+    --rotationX: calc(var(--angle) * 1);
+  }
+   
+
+  .card_thor .card_move_body{
+    background: linear-gradient(to right, rgba(30, 17, 97, 0.239),rgb(30, 17, 97)),url(./thor_bg_01.png),url(./thor_bg_02.png);
+    background-position: center,center bottom,center center;
+    background-size: cover,contain,cover;
+    background-repeat: no-repeat;
+    background-color: unset;
+    background-blend-mode: multiply;
+    filter: contrast(1.3) brightness(1.2);
+  }
+
+  .card_thor .card_move_body img{
+    position: relative;
+    left: 0px;
+    /* opacity: 0; */
+    /* animation:animation-thor .5s forwards linear; */
+  }
+
+  .card_thor .card_move_body:after{
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.05) 0% , rgba(255, 255, 255,0.10) 50%, rgba(255, 255, 255, 0.05) 100%); 
+    transition: background-image 500ms;
+    filter: blur(16px);
+  }
+
+
+  .card_spider .card_move_body{
+    background:url(./spider_bg_01.png), linear-gradient(213deg, rgba(217, 86, 106,0.59),#0066FF),linear-gradient(to bottom,#FB5353,rgba(12, 16, 22, 0.70)),url(./spider_bg_02.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: unset;
+    background-blend-mode: soft-light, multiply, color-burn, multiply;
+    filter: contrast(1.3) brightness(1.2);
+  }
+  .card_spider .card_move_body img{
+    position: relative;
+    left: 34px;
+    top: 10%;
+    animation:animation-thor .5s forwards linear;
+  }
+
+  .card_black_widow .card_move_body{
+    background:linear-gradient(to bottom, #FBB853,rgba(22, 22, 12,0.70)),url(./black_widow_bg_01.jpg);
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: unset;
+    background-blend-mode: multiply;
+    filter: contrast(1.3) brightness(1.2);
+  }
+  .card_black_widow .card_move_body img{
+    position: relative;
+    left: 5px;
+    top: 15%;
+    animation:animation-thor .5s forwards linear;
+  }
+
+
+  @keyframes thor_light_1{
+    to{
+
+    }
+  }
+
+  .card_move_block_shape:nth-child(1):hover ~ .card_move_body:after{
+    
+  }
+  
+  .card_move_block_shape:nth-child(2):hover ~ .card_move_body:after {
+    
+  }
+  
+  .card_move_block_shape:nth-child(3):hover ~ .card_move_body:after {
+   
+  }
+  
+  .card_move_block_shape:nth-child(4):hover ~ .card_move_body:after {
+   
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.272)0%,  transparent 10% );
+  }
+  
+  .card_move_block_shape:nth-child(6):hover ~ .card_move_body:after {
+    --rotationY:calc(var(--angle) * -1);
+    background-image: linear-gradient(to bottom right, transparent 0% , rgba(255, 255, 255, 0.45) 10%, transparent 100%);
+  }
+  
+  .card_move_block_shape:nth-child(7):hover ~ .card_move_body:after {
+
+    /* background-image: linear-gradient(to left, rgba(255, 255, 255, 0.272) 0% , transparent 100%); */
+  }
+  
+  .card_move_block_shape:nth-child(8):hover ~ .card_move_body:after {
+    
+    background-image: linear-gradient(to bottom right, transparent 0% , rgba(255, 255, 255, 0.45) 10%, transparent 100%);
+  }
+  
+
+
+
+  @keyframes animation-thor{
+    to{
+      opacity: 1;
+      translate: initial;
+    }
+  }
